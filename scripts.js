@@ -21,11 +21,7 @@ form.addEventListener("submit", (event) => {
     const dividerConvertToNumber = Number(divider); // in case a string is submitted
 
     if (isNaN(divideConvertToNumber) || isNaN(dividerConvertToNumber)) {
-      result.innerText = "Invalid number provided";
-      console.error(
-        new Error("Invalid number provided in one or both inputs.")
-      );
-      return; // stops further execution if invalid numbers are provided
+      throw new Error("Invalid number provided in one or both inputs.");
     }
 
     if (dividerConvertToNumber === 0) {
@@ -42,7 +38,8 @@ form.addEventListener("submit", (event) => {
     result.innerText = divisionResult;
   } catch (error) {
     // Handle critical errors and crash the application
-    result.innerText = "Something critical went wrong. Please reload the page.";
+    document.body.innerHTML =
+      "<h1>Something critical went wrong. Please reload the page.</h1>";
     console.error(error); // Optionally, force the page to reload after showing the error
     // location.reload();
   }
