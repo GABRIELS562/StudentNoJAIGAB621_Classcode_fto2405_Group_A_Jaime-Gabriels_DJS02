@@ -1,4 +1,4 @@
-const form = document.querySelector("[data-form]");
+const form = document.querySelector("[data-form]"); //code given
 const result = document.querySelector("[data-result]");
 
 form.addEventListener("submit", (event) => {
